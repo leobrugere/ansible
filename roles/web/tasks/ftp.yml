@@ -1,0 +1,7 @@
+- name: install and start ftp
+  apt:
+   name: vsftpd
+   update-cache: yes
+  notify:
+   - enable vsftpd
+   - start vsftpd

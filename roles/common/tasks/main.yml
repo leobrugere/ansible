@@ -1,0 +1,20 @@
+- name: install apache2
+  apt:
+   name: apache2
+   update_cache: yes
+  notify:
+   - start apache2
+   - enable apache2
+
+- name: install php7.2
+  apt:
+   name: php7.2
+   update_cache: yes
+
+- name: install ftp
+  apt:
+   name: vsftpd
+   update_cache: yes
+  notify:
+   - start vsftpd
+   - enable vsftpd

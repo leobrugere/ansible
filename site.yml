@@ -1,0 +1,15 @@
+- name: install and start mysql
+  hosts: devops2
+  remote_user: devops
+  become: true
+
+  roles:
+    - mysql
+
+- name: install and start apache2/php/ftp
+  hosts: Devops3
+  remote_user: devops
+  become: true
+
+  roles:
+   - web

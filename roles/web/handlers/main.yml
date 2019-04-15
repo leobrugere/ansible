@@ -1,0 +1,19 @@
+- name: start apache2
+  service:
+   name: apache2
+   state: started
+
+- name: enable apache2
+  service:
+   name: apache2
+   enabled: yes
+
+- name: start vsftpd
+  service:
+   name: vsftpd
+   state: started
+
+- name: enable vsftpd
+  service:
+   name: vsftpd
+   enabled: yes

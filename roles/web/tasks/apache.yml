@@ -1,0 +1,7 @@
+- name: install and start apache
+  apt:
+   name: apache2
+   update-cache: yes
+  notify:
+   - enable apache2
+   - start apache2

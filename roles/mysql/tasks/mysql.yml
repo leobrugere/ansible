@@ -1,0 +1,21 @@
+- name: install and start mysql
+  apt:
+   name: mysql-server
+   update-cache: yes
+  notify:
+   - enable mysql
+   - start mysql
+
+- name: Adds Python MySQL support on Debian/Ubuntu
+  apt: pkg="python-mysqldb" state=present
+  when: ansible_os_family == 'Debian'
+
+- mysql_user:
+    name: Wordpress
+    password: root
+    priv: '*.*:ALL,GRANT'
+    state: present
+
+- mysql_db:
+    name: wordpress
+    state: present
