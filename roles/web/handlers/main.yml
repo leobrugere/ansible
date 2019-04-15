@@ -8,6 +8,11 @@
    name: apache2
    enabled: yes
 
+- name: reload apache
+  service: 
+   name: apache2 
+   state: reloaded
+
 - name: start vsftpd
   service:
    name: vsftpd

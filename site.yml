@@ -6,7 +6,15 @@
   roles:
     - mysql
 
-- name: install and start apache2/php/ftp
+- name: install unzip
+  hosts: Devops3
+  remote_user: devops
+  become: true
+
+  roles:
+   - common
+
+- name: install and start apache2/php/ftp/wordpress
   hosts: Devops3
   remote_user: devops
   become: true
