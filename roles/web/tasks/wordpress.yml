@@ -39,9 +39,25 @@
 - name: Unarchive wordpress that is already on the remote machine
   unarchive:
     src: https://fr.wordpress.org/wordpress-latest-fr_FR.zip
-    dest: /var/www/
+    dest: /var/www/html/
     remote_src: yes
 
 - lineinfile:
     path: /etc/hosts
     line: '127.0.0.1 wordpress'
+
+- name: "check sample db"
+  stat: 
+    path: "/var/www/html/wordpress/wp-config-sample.php"
+  register: check_sample
+
+- name: "rename sample"
+  command: mv /var/www/html/wordpress/wp-config-sample.php /var/www/html/wordpress/wp-config.php
+  when: check_sample.stat.exists == True
+  become: true
+
+- name: "config wp-config.php"
+  template:
+    src: ../templates/php.wordp.j2
+    dest: /var/www/html/wordpress/wp-config.php
+  become: true
