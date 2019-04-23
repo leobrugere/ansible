@@ -39,7 +39,7 @@
 - name: Unarchive wordpress that is already on the remote machine
   unarchive:
     src: https://fr.wordpress.org/wordpress-latest-fr_FR.zip
-    dest: /var/www/html/
+    dest: /var/www/
     remote_src: yes
 
 - lineinfile:
@@ -48,11 +48,11 @@
 
 - name: "check sample db"
   stat: 
-    path: "/var/www/html/wordpress/wp-config-sample.php"
+    path: "/var/www/wordpress/wp-config-sample.php"
   register: check_sample
 
 - name: "rename sample"
-  command: mv /var/www/html/wordpress/wp-config-sample.php /var/www/html/wordpress/wp-config.php
+  command: mv /var/www/wordpress/wp-config-sample.php /var/www/html/wordpress/wp-config.php
   when: check_sample.stat.exists == True
   become: true
 
