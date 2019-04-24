@@ -58,6 +58,6 @@
 
 - name: "config wp-config.php"
   template:
-    src: ../templates/php.wordp.j2
+    src: ../templates/wp-config.php
     dest: /var/www/html/wordpress/wp-config.php
   become: true

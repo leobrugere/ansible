@@ -25,7 +25,7 @@ define( 'DB_NAME', 'wordpress' );
 define( 'DB_USER', 'Wordpress' );
 
 /** Mot de passe de la base de données MySQL. */
-define( 'DB_PASSWORD', 'root' );
+define( 'DB_PASSWORD', 'h4rdpa$$word' );
 
 /** Adresse de l’hébergement MySQL. */
 define( 'DB_HOST', '10.0.0.7:3306' );

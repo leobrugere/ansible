@@ -12,8 +12,9 @@
 
 - mysql_user:
     name: Wordpress
-    password: root
+    password: h4rdpa$$word
     priv: '*.*:ALL,GRANT'
+    host: '%'
     state: present
 
 - mysql_db:
